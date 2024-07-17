@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="style.css">
+<!-- <link rel="stylesheet" href="../style.css"> -->
+
+
+</script>
+<body>
+<nav>
+    <!-- <div class="navbox"></div> -->
+   <a href="/" area-current="page"><span id="Home">Home</span></a></div>
+   <!-- <div class="navbox"> -->
+    <a target="_blank" href="https://www.youtube.com"><span id="yt">Youtube channel</span></a> </div>
+</nav>
+
+<div class="centre">
+<div id="banner">
+    <Span>Your Local Time</Span>    
+</div>
+<div id="clock"></div>
+
+</div>
+<style>
+    body{
+        background-color: #575454;
+        color: #fff;
+    }
+    #banner{
+        background-color: orange;
+        margin:20px 40% 
+    }
+    #clock{
+        /* background-color: orange; */
+        margin:20px 42% 
+    }
+
+</style>
+
+<script src="clock.js">
+
+
+</script>
+
+<script>
+    const COUNTER_KEY = 'my-counter'; // Unique key for session storage
+    
+    function countDown(i, callback) {
+        let timer;
+        timer = setInterval(function() {
+            const minutes = parseInt(i / 60 ,10);
+            const seconds = parseInt(i % 60 , 10);
+            
+            const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+            const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            document.getElementById("displayDiv").innerHTML =
+                `Time left: ${formattedMinutes}:${formattedSeconds}`;
+    
+            if (i > 0) {
+                window.sessionStorage.setItem(COUNTER_KEY, i); // Persist the counter value
+                i--;
+            } else {
+                window.sessionStorage.removeItem(COUNTER_KEY); // Remove the counter value
+                clearInterval(timer);
+                callback();
+            }
+        }, 1000);
+    }
+    
+    window.onload = function() {
+        const countDownTime = window.sessionStorage.getItem(COUNTER_KEY) || 30; // Default to 30 seconds
+        countDown(countDownTime, function() {
+            // Execute your desired action (e.g., show a modal)
+            // Example: $('#myModal').modal('show');
+            console.log("Time's up!");
+        });
+    };
+    </script>
+
+    <div id="displayDiv"></div>
+</body>
+</html>

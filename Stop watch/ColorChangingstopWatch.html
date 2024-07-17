@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Stop Watch(10 Min)</h1>
+    <h2 id="timer">00:00</h2>
+    <form action="">
+        <div class="buttons">
+    <button class="button" id="stop">Stop</button>
+    <button class="button" id="start">Start</button>
+    <input class="button" type="reset" id="reset">
+</div>
+</form>
+</div>
+</body>
+<style>
+.button{
+    background-color: rgb(22, 230, 171);
+    padding: 20px 30px;
+}
+    .container{
+        border-radius: 8px;
+        text-align: center;
+        height: 250px;
+        width: 450px;
+        position: absolute;
+        top: 10%;
+        left: 35%;
+        flex-wrap: wrap;
+        background-color: grey;
+    }
+</style>
+<script>
+let stopwatch;
+let watch;
+// let startwatch;
+let timer=0;
+    
+
+    const startwatch = () =>{
+        document.querySelector('body').style.backgroundColor=randomcolor();
+        let sec=timer;
+        let min=0;
+
+        if(sec<10){
+            watch = `0${min}:0${sec}`;
+            timer++;
+        }else if(sec>=10 && sec <=60){
+            watch =  `0${min}:${sec}`;
+            timer++;
+        }else if(sec>60 && sec<600){
+            sec=parseInt(timer%60);
+            min=parseInt(timer/60);
+            if(sec<10){
+            watch = `0${min}:0${sec}`;
+            timer++;
+            }
+            if(sec>=10 && sec <=60){
+            watch =  `0${min}:${sec}`;
+            timer++;
+            // console.log(timer);
+            }
+        }
+        // else if(sec>=600){            
+        //     sec=parseInt(timer%600);
+        //     min=parseInt(timer/60);
+        //     console.log(sec);
+        //     console.log(timer);
+        //     if(sec<10){
+        //     watch = `${min}:0${sec} teen`;
+        //     timer++;
+        //     }
+        //     if(sec>=10 && sec <=60){
+        //     watch =  `${min}:${sec} teen ek`;
+        //     timer++;
+        //     }
+            
+        // }
+        else{
+                watch=`00:00   (Time Up...!)`;
+                setTimeout(() => {
+                    location.reload();   
+                }, 5000);
+                
+            }    
+        
+        
+        
+        // console.log(watch);
+        document.querySelector('#timer').innerHTML=`${watch}`;
+    }
+    
+    document.querySelector('#reset').addEventListener('click',function(e){
+        location.reload();
+    });
+
+   const stop= document.querySelector('#stop');
+   stop.addEventListener('click',function(e){
+        e.preventDefault();
+        //  start.disabled="false";
+        clearInterval(stopwatch);
+    });
+
+    const start= document.querySelector('#start');
+    start.addEventListener('click',function(e){
+        e.preventDefault();
+        // start.disabled="true";
+      
+        
+        stopwatch = setInterval(startwatch, 1000,"ajay");  
+    });
+// console.log(randomcolor());
+const randomcolor=function (){
+    const hex="0123456789ABCDEF";
+    let color='#';
+    for(let i=0;i<6;i++){
+        color+=hex[Math.floor(Math.random()*16)]
+    }
+return color;
+}
+console.log(randomcolor());
+
+</script>

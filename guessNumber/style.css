@@ -1,0 +1,93 @@
+.box2{
+    background-color: rgb(69, 71, 71);
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px;
+    border-style: solid;
+    /* border-color: black; */
+    
+}
+
+nav{
+    background-color: #797777;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+#span.home{
+    background-color: aqua;
+}
+
+#yt{
+    align-items: flex-end;
+}
+
+h1{
+-ms-flex-align: center;}
+.canvas{
+    padding: 20 px;
+    border-spacing: 20px;
+    
+}
+
+.button#Grey{
+    background-color:grey;
+    padding: 25px;
+    border-color: black;
+    border: 20px;
+    border-radius: 5px;
+}
+.button#Green{
+    background-color:green;
+    padding: 25px;
+    border-color: black;
+    border: 20px;
+    border-radius: 5px;
+}
+.button#Orange{
+    background-color:orange;
+    padding: 25px;
+    border-color: black;
+    border: 20px;
+    border-radius: 5px;
+}
+.button#Blue{
+    background-color:blue;
+    padding: 25px;
+    border-color: black;
+    border: 20px;
+    border-radius: 5px;
+}
+
+#result{
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+.wrapper{
+    background-color: rgb(19, 19, 19);
+    color: #fff;
+    padding: 1px 38%;
+}
+body{
+    background-color: rgb(99, 98, 98);
+    color: #fff;
+}
+.canvas{
+    margin:auto;
+    width : 50%;
+  
+    padding: 1px 
+}
+#guessfield{
+    padding: 5px;
+}
+#guessbutton{
+    border-radius: 10px;
+    padding: 5px ;
+    background-color: black;
+    color: #fff;
+}
